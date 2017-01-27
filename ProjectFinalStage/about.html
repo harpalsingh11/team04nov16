@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BlogAll - The Public Blog</title>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+</script>
+<![endif]-->
+<link rel="stylesheet" href="mystyle.css"/>
+</head>
+<body>
+
+<header>
+<h1>BlogAll-The Public Blog</h1>
+</header>
+
+<nav>
+<ul class="leftnav">
+  <li ><a href="index.php">Home </a></li>
+  <li class="active"><a href="about.html">About </a></li>
+  <li><a href="blog.php">Blog </a></li>
+</ul>
+<ul class="rightnav">
+<?php 
+if (isset($_SESSION['valid_user']))
+  {
+ ?>
+<li><a href="newarticle.html" class="button">Add Article</a></li>
+<li><a href="myarticles.php" class="button">My Articles</a></li>
+<li><a href="logout.php" class="button">Logout</a></li>
+<?php
+}
+else{
+?>
+  <li><a href="login.html" class="button">Login </a></li>
+  <li><a href="registration.html" class="button">Register</a></li>
+  <?php 
+}
+  ?>
+</ul>
+</nav>
+
+<section>
+
+	<img class="poster" src="blogposter.jpg">
+	<div class="container">
+	<p>A Blog is a platform which provides people with content in the form of articles. People can browse around category wise or tag wise. There are several platforms where more than one authors write blogs which allows the readers to browse author wise articles also. The backend of such a platform involves an interface to add new articles, manage the articles, create new author profiles etc. Our idea involves creating a similar platform and working towards making it a revenue generating automated algorithm.
+Blog is today’s trend to share content or articles throughout the world. All the websites which earn high revenue involve some type of content sharing features in it. The internet giants Facebook and Twitter are a similar platform where people can do micro-blogging. Our concept here is about something very similar yet different from what is being done by others. 
+BlogAll – will be a platform for people to share their content. As the name indicates, it will allow everyone to blog. There will be approval flows involved in the same. This platform will allow users to register. The administrator of the website will approve the newly registered users after verifying sufficient details are available. The registered and approved users can then add articles which will be published on the website globally. This platform helps any creative writer to demonstrate his/her writing skills to the audience. Usually a blog requires considerable investment in terms of domain and hosting. BlogAll eliminates this overhead and provides users with the right to publish their content for free. Thus, this project will help any content writer to earn by freelancing on this platform. The concept is expected to invite a huge crowd and turn into an autonomous revenue generator soon. 
+</p>
+	</div>
+</section>
+
+<footer>
+<p>&copy; 2016 BlogAll Media LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
