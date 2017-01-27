@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Registration</title>
+<link rel="stylesheet" href="mystyle.css"/>
+<title>New membership</title>
+<script>
+	function checkRePassword(document) {	
+	  var pwd = document.getElementById("password");
+  	  var pwd_msg = document.getElementById('pwd_msg');
+	  var repwd = document.getElementById("rePassword");	  
+	  if (pwd.value != repwd.value) {
+		pwd_msg.innerHTML = "The two passwords are not the same. Please re-enter both now";
+		repwd.value = "";
+		pwd.focus();
+		return false;
+	  }
+	  else {
+		pwd_msg.innerHTML = "";  
+	  }  
+	  return true;
+	}	
+
+	function validateInfo(document) { 
+	  if (checkRePassword(document))
+	  { 
+		return true;
+	  }
+	  return false;
+	}	
+</script>
+</head>
+<body>
+
+<header>
+<h1 style="float:left">BlogAll-The Public Blog</h1>
+<div align="right" style="float:right">
+<form id="searchform" method="post" action="search.php" style="background:none !important;padding:30px !important">
+	<input type="text" placeholder="Search Text" name="searchtext"/> <input type="submit" value="Search" name="submit">
+</form>
+</div>
+</header>
+
+<nav>
+<ul class="leftnav">
+  <li class="active"><a href="index.php">Home </a></li>
+  <li><a href="about.html">About </a></li>
+  <li><a href="blog.php">Blog </a></li>
+</ul>
+<ul class="rightnav">
+  <li><a href="login.html" class="button">Login </a></li>
+</ul>
+</nav>
+
+
+
+<h1>New Membership Form</h1>
+<h2>Please enter your profile</h2>
+<p><i>Fields marked with an asterisk (*) must be entered.</i></p>
+<form action="registration_process.php" method="post">
+ <table border="0">
+	<tr>
+    	<td align="right">* Name:</td>
+    	<td><input type="text" id="name" name="name" required></td>
+	</tr>
+	<tr>
+    	<td align="right">* Email:</td>
+    	<td><input type="email" name="email" id="email" required></td>
+	</tr>
+	<tr>
+    	<td align="right">* Password:</td>
+    	<td><input type="password" id="password" name="password" required></td>
+        <td id="pwd_msg" style="color:red;"></td>
+	</tr>
+	<tr>
+    	<td align="right">* Re-try:</td>
+    	<td><input type="Password" id="rePassword" name="rePassword" onChange="checkRePassword(document)"></td>
+	</tr>
+	<tr>
+    	<td align="right"><input type="submit" name="submit" value="Submit" onClick="return validateInfo(document)"></td>
+    	<td><input type="reset" name="reset" value="Clear"></td>
+	</tr>
+  </table> 
+</form>
+
+<footer>
+<p>&copy; 2016 BlogAll Media LLC. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
